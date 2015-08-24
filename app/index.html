@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" href="images/favicon.jpg">
+
+    <!-- build:css styles/1.min.css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="bower_components/bootstrap-sidebar/dist/css/sidebar.css">
+    <link rel="stylesheet" href="bower_components/angular-ui-switch/angular-ui-switch.css">
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/src/loading-bar.css">
+    <!-- endbuild-->
+
+    <!-- build:css styles/2.min.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild-->
+
+    <title>App Web Application</title>
+  </head>
+
+  <body ng-app="app" ng-controller="mainController" ng-cloak class="ng-cloak">
+    <div class="navbar navbar-inverse navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle toggle-left hidden-md hidden-lg" data-toggle="sidebar" data-target=".sidebar-left">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <a class="navbar-brand" href="/">App</a>
+        </div>
+
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/apps">Apps dashboard</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Account <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="/settings">Settings</a></li>
+                <li><a href="/billing">Billing</a></li>
+                <li class="divider"></li>
+                <li><a href="/signout">Sign out</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-7 col-sm-3 col-md-2 sidebar sidebar-left sidebar-animate sidebar-md-show">
+          <ul class="nav navbar-stacked" ng-repeat="group in pageGroups track by $index">
+            <li>
+              <div class="panel-group" id="accordion{{ $index }}">
+                  <div class="panel panel-default">
+                      <div class="panel-heading">
+                          <h4 class="panel-title">
+                              <a data-toggle="collapse" data-parent="#accordion{{ $index }}" href="#collapse{{ $index }}">
+                                  {{ group.name }}
+                              </a>
+                          </h4>
+                      </div>
+                      <div id="collapse{{ $index }}" class="panel-collapse collapse {{ ($index==0) ? 'in' : '' }}">
+                          <div class="panel-body">
+                              <ul class="nav navbar-stacked">
+                                <li class="active" ng-repeat="page in group.pages">
+                                  <a ui-sref="{{ page.name | slugify }}"><i class="glyphicon {{ page.icon }}"></i> {{ page.name }}</a>
+                                </li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div id="page" class="main col-md-9 col-md-offset-2">
+          <div ui-view></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- build:js scripts/1.min.js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <!-- endbuild -->
+    <!-- build:js scripts/2.min.js -->
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/bootstrap-sidebar/dist/js/sidebar.js"></script>
+    <!-- endbuild -->
+    <!-- build:js scripts/3.min.js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-filter/dist/angular-filter.min.js"></script>
+    <script src="bower_components/angular-ui-switch/angular-ui-switch.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.min.js"></script>
+    <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="bower_components/angular-loading-bar/src/loading-bar.js"></script>
+    <!-- endbuild -->
+    <!-- build:js scripts/4.min.js -->
+    <script src="bower_components/moment/moment.js"></script>
+    <!-- endbuild -->
+
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <!-- build:js scripts/5.min.js -->
+    <script src="scripts/app.js"></script>
+    <!-- endbuild-->
+  </body>
+</html>

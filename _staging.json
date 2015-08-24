@@ -1,0 +1,25 @@
+{
+    "python": "python2.7.9",
+    "url": "http://app-staging",
+    "host": "app-staging",
+    "port": 80,
+    "heroku_app": "app-staging",
+    "heroku_app_addons": ["newrelic", "papertrail", "redistogo", "mongolab", "heroku-postgresql", "sendgrid", "mailgun", "mandrill", "cloudamqp"],
+    "heroku_worker": "app-worker-staging",
+    "heroku_worker_addons": ["papertrail", "scheduler"],
+    "heroku_cedar": "cedar-14",
+    "paths": [],
+    "vars": {
+        "ENVIRONMENT": "Staging",
+        "URL": "http://app-staging.herokuapp.com",
+        "DEBUG": "True",
+        "HEROKU": "True",
+        "AWS_STORAGE_BUCKET_NAME": "app-staging",
+        "AWS_ACCESS_KEY_ID": "$AWS_ACCESS_KEY_ID",
+        "AWS_SECRET_ACCESS_KEY": "$AWS_SECRET_ACCESS_KEY",
+        "AWS_REGION": "$AWS_REGION"
+    },
+    "shared_vars": ["ENVIRONMENT", "URL", "REDISTOGO_URL", "REDIS_URL", "MONGOHQ_URL", "MONGOLAB_URI", "DATABASE_URL", "CLOUDAMQP_URL", "MAILGUN_API_KEY", "MAILGUN_DOMAIN", "MAILGUN_PUBLIC_KEY", "MAILGUN_SMTP_LOGIN", "MAILGUN_SMTP_PASSWORD", "MAILGUN_SMTP_PORT", "MAILGUN_SMTP_SERVER", "MANDRILL_APIKEY", "MANDRILL_USERNAME", "SENDGRID_PASSWORD", "SENDGRID_USERNAME"]
+}
+
+

@@ -1,0 +1,23 @@
+{
+    "python": "python2.7",
+    "url": "http://localhost:8000",
+    "host": "localhost",
+    "port": 8000,
+    "heroku_app": null,
+    "heroku_app_addons": [],
+    "heroku_worker": null,
+    "heroku_worker_addons": [],
+    "heroku_cedar": null,
+    "paths": [],
+    "vars": {
+        "ENVIRONMENT": "App-Dev",
+        "URL": "http://localhost:8000",
+        "DEBUG": "True",
+        "HEROKU": "False",
+        "AWS_STORAGE_BUCKET_NAME": "$AWS_STORAGE_BUCKET_NAME",
+        "AWS_ACCESS_KEY_ID": "$AWS_ACCESS_KEY_ID",
+        "AWS_SECRET_ACCESS_KEY": "$AWS_SECRET_ACCESS_KEY",
+        "AWS_REGION": "$AWS_REGION"
+    },
+    "shared_vars": []
+}
