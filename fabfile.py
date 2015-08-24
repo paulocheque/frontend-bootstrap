@@ -15,7 +15,17 @@ def npm():
     local('sudo npm install -g yo')
     local('sudo npm install -g generator-polymer')
     local('sudo npm install -g gulp')
+
+@task
+def bootstrap():
     local('npm install')
+    local('bower install')
+
+@task
+def bower():
+    local('bower prune')
+    local('bower install')
+    local('bower update')
 
 @task
 def build():
@@ -35,12 +45,6 @@ def dev_server():
 def prod_server():
     local('gulp clean')
     local('gulp serve:dist')
-
-@task
-def bower():
-    local('bower prune')
-    local('bower install')
-    local('bower update')
 
 @task
 def pre_deploy():
